@@ -1,0 +1,46 @@
+# Cấu hình Kalodata Crawler
+
+# Target
+target:
+  url: "https://www.kalodata.com/product"
+  cookie_file: "cookie.json"
+  output_file: "output/kalodata_result.md"
+
+# Browser settings
+browser:
+  headless: false          # false để quan sát, true để chạy nhanh
+  viewport_width: 1920
+  viewport_height: 1080
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+
+# Crawler settings
+crawler:
+  cache_mode: "bypass"     # bypass / enabled / disabled
+  wait_for: "tr.ant-table-row-level-0"
+  page_timeout: 240000     # 4 phút
+  remove_overlay_elements: true
+
+# Filter settings
+filter:
+  tab_key: "-3"                          # High Potential Affiliate
+  tab_selector: "#filter-tabs-tiktokfilter-drag-tabs-container"
+  sort_column: "Item Sold"
+  sort_delay: 1500                       # ms chờ sau khi sort
+
+# JS execution mode: "fast" hoặc "slow_motion"
+js_mode: "slow_motion"
+
+# Slow motion settings (chỉ dùng khi js_mode = "slow_motion")
+slow_motion:
+  highlight_duration: 2000    # ms
+  scroll_delay: 1500          # ms
+  click_delay: 1000           # ms
+  data_reload_delay: 3000     # ms
+  table_reload_delay: 4000    # ms
+  highlight_rows: 3           # số hàng đầu để highlight
+
+# Output settings
+output:
+  format: "markdown"          # markdown / html / json
+  include_preview: true
+  preview_length: 400
